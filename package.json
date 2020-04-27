@@ -1,0 +1,33 @@
+{
+  "name": "ch3t",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm.cmd run compile",
+    "pretest": "npm.cmd run compile",
+    "posttest": "npm.cmd run check"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^10.0.3",
+    "gts": "^2.0.0",
+    "ts-node": "^8.9.0",
+    "tslint": "^6.1.1",
+    "typescript": "~3.8.0"
+  },
+  "dependencies": {
+    "@types/request": "^2.48.4",
+    "asynckeystate": "0.0.5",
+    "fs": "0.0.1-security",
+    "memoryjs": "^3.2.3",
+    "request": "^2.88.2",
+    "tslint-config-airbnb": "^5.11.2"
+  }
+}

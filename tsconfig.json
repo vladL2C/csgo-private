@@ -1,0 +1,29 @@
+{
+  "extends": "./node_modules/gts/tsconfig-google.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "build",
+    "resolveJsonModule": true,
+    "strict": true,
+    "target": "es2015",
+    "typeRoots": [
+      "./customTypes",
+      "./node_modules/@types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "memoryjs": ["customTypes/memoryjs"],
+      "asynckeystate": ["customTypes/asynckeystate"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ],
+
+  "exclude": [
+    "./node_modules",
+    "customTypes"
+  ]
+}

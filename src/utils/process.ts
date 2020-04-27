@@ -1,5 +1,4 @@
 import {openProcess, findModule, readMemory} from 'memoryjs';
-import {Player} from '../enums/local';
 
 const processName = 'csgo.exe';
 const currentOpenProcess = openProcess(processName);

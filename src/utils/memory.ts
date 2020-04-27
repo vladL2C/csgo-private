@@ -15,19 +15,19 @@ export const localPlayer = {
   getLocalPlayerTeam: function () {
     return readMemory(
       client.processHandle,
-      localPlayer.getLocalPlayer() + Entity.Team,
+      this.getLocalPlayer() + Entity.Team,
       'int'
     );
   },
   getPlayerInCrosshair: function () {
     return readMemory(
       client.processHandle,
-      localPlayer.getLocalPlayer() + Player.CrossHairId,
+      this.getLocalPlayer() + Player.CrossHairId,
       'int'
     );
   },
   isPlayerInCrosshair: function () {
-    const playerCrosshairId = localPlayer.getPlayerInCrosshair();
+    const playerCrosshairId = this.getPlayerInCrosshair();
     return playerCrosshairId > 0 && playerCrosshairId < 65;
   },
   actionAttack: function () {
@@ -46,14 +46,14 @@ export const entity = {
   getEntityPlayerHealth: function (id: number) {
     return readMemory(
       client.processHandle,
-      entity.getEntityPlayer(id) + Player.Health,
+      this.getEntityPlayer(id) + Player.Health,
       'int'
     );
   },
   getEntityPlayerTeam: function (id: number) {
     return readMemory(
       client.processHandle,
-      entity.getEntityPlayer(id) + Entity.Team,
+      this.getEntityPlayer(id) + Entity.Team,
       'int'
     );
   },

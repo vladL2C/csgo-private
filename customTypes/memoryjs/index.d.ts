@@ -77,9 +77,9 @@ declare module 'memoryjs' {
     export function getProcesses(callback: (error: any, processes: ProcessListEntry[]) => void): void;
     export function getProcesses(): ProcessListEntry[];
 
-    export function findModule(moduleName: string, pid: string): ModuleListEntry;
+    export function findModule(moduleName: string, pid: number): ModuleListEntry;
 
-    export function getModules(pid: string): ModuleObject[];
+    export function getModules(pid: number): ModuleObject[];
 
     export function readMemory(handle: number, address: any, dataType: EMemoryTypes): any;
 

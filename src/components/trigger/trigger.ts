@@ -14,6 +14,7 @@ export const triggerBot = () => {
   const entityHealth = entity.getEntityPlayerHealth(playerInCrosshairId);
   const entityTeam = entity.getEntityPlayerTeam(playerInCrosshairId);
 
+  //mouse 4 on the side of mouse :)
   if (aks.getAsyncKeyState(0x05)) {
     if (
       localPlayer.isPlayerInCrosshair() &&

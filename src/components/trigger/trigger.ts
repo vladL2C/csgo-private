@@ -15,6 +15,7 @@ export const triggerBot = () => {
   const entityTeam = entity.getEntityPlayerTeam(playerInCrosshairId);
 
   //mouse 4 on the side of mouse :)
+  // entityTeam 1 = spectator // 2 = T // 3 = CT I THINK don't remember
   if (aks.getAsyncKeyState(0x05)) {
     if (
       localPlayer.isPlayerInCrosshair() &&

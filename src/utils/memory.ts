@@ -42,7 +42,7 @@ export const entity = {
   getEntityPlayer: (id: number) =>
     readMemory(
       client.processHandle,
-      client.baseClient + Entity.PlayerList + id * 0x10,
+      client.baseClient + Entity.PlayerList + id * Entity.LoopDistance,
       'int'
     ),
   getEntityPlayerHealth: function (id: number) {

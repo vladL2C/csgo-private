@@ -19,6 +19,8 @@ export const localPlayer = {
       'int'
     );
   },
+  // returns memory address of whatever player is in crosshair
+  //current localplayer + crosshairId offset to find your personal crosshair then it returns the id
   getPlayerInCrosshair: function () {
     return readMemory(
       client.processHandle,

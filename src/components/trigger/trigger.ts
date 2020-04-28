@@ -28,11 +28,11 @@ export const triggerBot = () => {
       setTimeout(() => {
         writeMemory(client.processHandle, localPlayer.actionAttack(), 1, 'int');
       }, randomisedDelay);
-      
 
       setTimeout(() => {
         writeMemory(client.processHandle, localPlayer.actionAttack(), 4, 'int');
-      }, 1);
+      },randomisedDelay + 1);
+      
     }
   }
 };

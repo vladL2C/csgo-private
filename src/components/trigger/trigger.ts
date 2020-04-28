@@ -23,7 +23,12 @@ export const triggerBot = () => {
       entityTeam > 1 &&
       entityHealth > 0
     ) {
-      writeMemory(client.processHandle, localPlayer.actionAttack(), 1, 'int');
+      const randomisedDelay = Math.random() * 110;
+      
+      setTimeout(() => {
+        writeMemory(client.processHandle, localPlayer.actionAttack(), 1, 'int');
+      }, randomisedDelay);
+      
 
       setTimeout(() => {
         writeMemory(client.processHandle, localPlayer.actionAttack(), 4, 'int');

@@ -1,12 +1,21 @@
 {
-  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "sourceMap": true,
-    "outDir": "build",
-    "resolveJsonModule": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
-    "target": "es2015",
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "downlevelIteration": true,
+    "rootDir": ".",
+    "outDir": "build",
     "typeRoots": [
       "./customTypes",
       "./node_modules/@types"
@@ -18,12 +27,6 @@
     }
   },
   "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
-  ],
-
-  "exclude": [
-    "./node_modules",
-    "customTypes"
+    "src/**/*.ts"
   ]
 }

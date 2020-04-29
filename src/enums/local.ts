@@ -1,6 +1,6 @@
 import * as offsets from '../../offsets.json';
 
-const {signatures, netvars} = offsets;
+const { signatures, netvars } = offsets;
 
 // offsets
 export enum Player {

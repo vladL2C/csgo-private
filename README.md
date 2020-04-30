@@ -10,3 +10,4 @@ to start launch csgo and run `npm run start`
 
 # csgo-private
 cs:go private ch3t
+hehexd

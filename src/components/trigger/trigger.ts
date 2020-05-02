@@ -19,7 +19,7 @@ export const triggerBot = () => {
   // entityTeam 1 = spectator // 2 = T // 3 = CT I THINK don't remember
   if (aks.getAsyncKeyState(0x05)) {
     if (localPlayer.isPlayerInCrosshair() && myCurrentTeam !== entityTeam && entityTeam > 1 && entityHealth > 0) {
-      const randomisedDelay = Math.random() * 5;
+      const randomisedDelay = Math.round(Math.random() * 5);
 
       setTimeout(() => writeMemory(client.processHandle, localPlayer.actionAttack(), 1, 'int'), randomisedDelay);
 

@@ -21,13 +21,9 @@ export const triggerBot = () => {
     if (localPlayer.isPlayerInCrosshair() && myCurrentTeam !== entityTeam && entityTeam > 1 && entityHealth > 0) {
       const randomisedDelay = Math.random() * 5;
 
-      setTimeout(() => {
-        writeMemory(client.processHandle, localPlayer.actionAttack(), 1, 'int');
-      }, randomisedDelay);
+      setTimeout(() => writeMemory(client.processHandle, localPlayer.actionAttack(), 1, 'int'), randomisedDelay);
 
-      setTimeout(() => {
-        writeMemory(client.processHandle, localPlayer.actionAttack(), 4, 'int');
-      }, randomisedDelay + 1);
+      setTimeout(() => writeMemory(client.processHandle, localPlayer.actionAttack(), 4, 'int'), randomisedDelay + 1);
     }
   }
 };

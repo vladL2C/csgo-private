@@ -2,7 +2,7 @@ import { findModule, openProcess } from 'memoryjs';
 
 const processName = 'csgo.exe';
 const currentOpenProcess = openProcess(processName);
-const clientModule = findModule('client_panorama.dll', currentOpenProcess.th32ProcessID);
+const clientModule = findModule('client.dll', currentOpenProcess.th32ProcessID);
 
 interface BaseClient {
   baseClient: number;

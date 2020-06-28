@@ -4,7 +4,7 @@ import { writeMemory } from 'memoryjs';
 import { entity, localPlayer } from '../../utils/memory';
 import { client } from '../../utils/process';
 
-export const triggerBot = () => {
+export const triggerBot = (): void => {
   // my current team
   const myCurrentTeam = localPlayer.getLocalPlayerTeam();
 

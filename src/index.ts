@@ -1,3 +1,4 @@
+import { radar } from './components/radar/radar';
 import { triggerBot } from './components/trigger/trigger';
 import { getOffsets } from './utils/getoffSets';
 
@@ -6,5 +7,6 @@ getOffsets().then(() => {
   // we need setInterval to keep this running
   setInterval(() => {
     triggerBot();
+    radar();
   }, 1);
 });

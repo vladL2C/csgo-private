@@ -35,4 +35,7 @@ export const entity = {
   getEntityPlayerTeam(id: number) {
     return readMemory(client.processHandle, this.getEntityPlayer(id) + Entity.Team, 'int');
   },
+  getEntityIsDormant(id: number) {
+    return readMemory(client.processHandle, this.getEntityPlayer(id) + Entity.Dormant, 'int');
+  },
 };

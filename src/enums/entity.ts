@@ -6,4 +6,6 @@ export enum Entity {
   PlayerList = signatures.dwEntityList,
   LoopDistance = 0x10,
   Team = netvars.m_iTeamNum,
+  Dormant = signatures.m_bDormant,
+  Spotted = netvars.m_bSpotted,
 }

@@ -9,7 +9,7 @@ export const triggerBot = (): void => {
   const myCurrentTeam = localPlayer.getLocalPlayerTeam();
 
   // get the current player in crosshair
-  const playerInCrosshairId = localPlayer.getPlayerInCrosshair();
+  const playerInCrosshairId = localPlayer.getPlayerInCrosshair() - 1;
 
   // get the other team player details
   const entityHealth = entity.getEntityPlayerHealth(playerInCrosshairId);

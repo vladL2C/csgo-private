@@ -28,7 +28,7 @@ export const localPlayer = {
 // other player helpers
 export const entity = {
   getEntityPlayer: (id: number) =>
-    readMemory(client.processHandle, client.baseClient + Entity.PlayerList + (id - 1) * Entity.LoopDistance, 'int'),
+    readMemory(client.processHandle, client.baseClient + Entity.PlayerList + id * Entity.LoopDistance, 'int'),
   getEntityPlayerHealth(id: number) {
     return readMemory(client.processHandle, this.getEntityPlayer(id) + Player.Health, 'int');
   },

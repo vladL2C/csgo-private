@@ -6,7 +6,7 @@ import { client } from '../../utils/process';
 
 export const radar = (): void => {
   let i: number;
-  for (i = 0; i < 64; i += 1) {
+  for (i = 1; i < 65; i += 1) {
     const player = entity.getEntityPlayer(i);
     const myCurrentTeam = localPlayer.getLocalPlayerTeam();
     const entityTeam = entity.getEntityPlayerTeam(i);

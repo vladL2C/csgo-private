@@ -38,4 +38,10 @@ export const entity = {
   getEntityIsDormant(id: number) {
     return readMemory(client.processHandle, this.getEntityPlayer(id) + Entity.Dormant, 'int');
   },
+  getEntityGlowIndex(id: number) {
+    return readMemory(client.processHandle, this.getEntityPlayer(id) + Entity.GlowIndex, 'int');
+  },
 };
+
+export const getGlowObjectManager = () =>
+  readMemory(client.processHandle, client.baseClient + Entity.GlowObjectManager, 'int');

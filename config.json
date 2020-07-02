@@ -1,0 +1,25 @@
+{
+  "triggerbot": {
+    "enabled": true
+  },
+  "radarMinimap": {
+    "enabled": true
+  },
+  "glowEsp": {
+    "teamEnabled": false,
+    "enemyEnabled": true,
+    "team": {
+      "r": 0,
+      "g": 255,
+      "b": 0,
+      "a": 160
+    },
+    "enemy": {
+      "r": 255,
+      "g": 0,
+      "b": 0,
+      "a": 160
+    },
+    "bloom": false
+  }
+}

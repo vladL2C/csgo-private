@@ -8,4 +8,6 @@ export enum Entity {
   Team = netvars.m_iTeamNum,
   Dormant = signatures.m_bDormant,
   Spotted = netvars.m_bSpotted,
+  GlowObjectManager = signatures.dwGlowObjectManager,
+  GlowIndex = netvars.m_iGlowIndex,
 }

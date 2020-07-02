@@ -17,7 +17,7 @@ getOffsets().then(() => {
       radar();
     }
 
-    if (glowEsp.enemyEnabled || glowEsp.enemyEnabled) {
+    if (glowEsp.enemyEnabled || glowEsp.teamEnabled) {
       glow();
     }
   }, 1);

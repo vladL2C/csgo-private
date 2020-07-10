@@ -1,7 +1,11 @@
 import { writeFile } from 'fs';
 import request from 'request';
 
-export const getOffsets = () => {
+export const getOffsets = (manualUpdate: boolean) => {
+  if (manualUpdate) {
+    return new Promise(resolve => resolve('Init Manual offsets'));
+  }
+
   return new Promise((resolve, reject) => {
     request(
       {

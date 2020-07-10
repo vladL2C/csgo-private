@@ -4,9 +4,9 @@ import { radar } from './components/radar/radar';
 import { triggerBot } from './components/trigger/trigger';
 import { getOffsets } from './utils/getoffSets';
 
-const { triggerbot, radarMinimap, glowEsp } = config;
+const { triggerbot, radarMinimap, glowEsp, manualUpdateOffsets } = config;
 
-getOffsets().then(() => {
+getOffsets(manualUpdateOffsets).then(() => {
   // this seems to be perfectly fine for memory and cpu usage
   // we need setInterval to keep this running
   setInterval(() => {

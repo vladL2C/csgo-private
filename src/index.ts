@@ -13,6 +13,9 @@ getOffsets(manualUpdateOffsets).then(() => {
     if (triggerbot.enabled) {
       triggerBot();
     }
+  });
+
+  setInterval(() => {
     if (radarMinimap.enabled) {
       radar();
     }
@@ -20,5 +23,5 @@ getOffsets(manualUpdateOffsets).then(() => {
     if (glowEsp.enemyEnabled || glowEsp.teamEnabled) {
       glow();
     }
-  }, 1);
+  }, 30);
 });

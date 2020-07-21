@@ -13,7 +13,7 @@ getOffsets(manualUpdateOffsets).then(() => {
     if (triggerbot.enabled) {
       triggerBot();
     }
-  });
+  }, 1);
 
   setInterval(() => {
     if (radarMinimap.enabled) {

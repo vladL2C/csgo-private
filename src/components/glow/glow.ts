@@ -1,13 +1,14 @@
 import { writeMemory } from 'memoryjs';
 
 import * as config from '../../../config.json';
-import { entity, localPlayer } from '../../utils/memory';
+import { IEntity } from '../../models/entity.model';
+import { localPlayer } from '../../utils/memory';
 import { client } from '../../utils/process';
 
 const glowPlayer = (
   playerIndex: number,
   color: any,
-  bRenderWhenOccluded: boolean,
+  bRenderWhenOccluded: boolean = true,
   bRenderWhenUnoccluded: boolean,
   bFullBloom: boolean
 ) => {
@@ -21,24 +22,19 @@ const glowPlayer = (
   writeMemory(client.processHandle, glowObjectManager + (playerIndex * 0x38 + 0x26), bFullBloom, 'bool');
 };
 
-export const glow = (): void => {
-  let i: number;
-  for (i = 0; i < 64; i += 1) {
-    const playerGlowIndex = entity.getEntityGlowIndex(i);
+export const glow = (entity: IEntity): void => {
+  const myCurrentTeam = localPlayer.getLocalPlayerTeam();
+  const { playerGlowIndex, isDormant } = entity;
+  const entityTeam = entity.team;
+  const entityHealth = entity.health;
 
-    const myCurrentTeam = localPlayer.getLocalPlayerTeam();
-    const entityTeam = entity.getEntityPlayerTeam(i);
-    const isDormant = entity.getEntityIsDormant(i);
-    const entityHealth = entity.getEntityPlayerHealth(i);
+  if (!isDormant && entityHealth > 0) {
+    if (myCurrentTeam === entityTeam && config.glowEsp.teamEnabled) {
+      glowPlayer(playerGlowIndex, config.glowEsp.team, true, false, config.glowEsp.bloom);
+    }
 
-    if (!isDormant && entityHealth > 0) {
-      if (myCurrentTeam === entityTeam && config.glowEsp.teamEnabled) {
-        glowPlayer(playerGlowIndex, config.glowEsp.team, true, false, config.glowEsp.bloom);
-      }
-
-      if (myCurrentTeam !== entityTeam && config.glowEsp.enemyEnabled) {
-        glowPlayer(playerGlowIndex, config.glowEsp.enemy, true, false, config.glowEsp.bloom);
-      }
+    if (myCurrentTeam !== entityTeam && config.glowEsp.enemyEnabled) {
+      glowPlayer(playerGlowIndex, config.glowEsp.enemy, true, false, config.glowEsp.bloom);
     }
   }
 };

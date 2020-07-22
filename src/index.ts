@@ -14,6 +14,7 @@ const runVL2C = () => {
     .then(([first, second]) => {
       console.log(first);
       console.log(second);
+
       setInterval(() => {
         if (triggerbot.enabled) {
           triggerBot();
@@ -31,7 +32,11 @@ const runVL2C = () => {
         });
       }, 25);
     })
-    .catch(e => console.log(e));
+    .catch(e => {
+      console.log(e);
+      runVL2C();
+      console.clear();
+    });
 };
 
 runVL2C();

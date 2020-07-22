@@ -1,7 +1,7 @@
 import { writeMemory } from 'memoryjs';
 
 import * as config from '../../../config.json';
-import { entity, getGlowObjectManager, localPlayer } from '../../utils/memory';
+import { entity, localPlayer } from '../../utils/memory';
 import { client } from '../../utils/process';
 
 const glowPlayer = (
@@ -11,7 +11,7 @@ const glowPlayer = (
   bRenderWhenUnoccluded: boolean,
   bFullBloom: boolean
 ) => {
-  const glowObjectManager = getGlowObjectManager();
+  const { glowObjectManager } = client;
   writeMemory(client.processHandle, glowObjectManager + (playerIndex * 0x38 + 0x4), color.r / 255, 'float');
   writeMemory(client.processHandle, glowObjectManager + (playerIndex * 0x38 + 0x8), color.g / 255, 'float');
   writeMemory(client.processHandle, glowObjectManager + (playerIndex * 0x38 + 0xc), color.b / 255, 'float');

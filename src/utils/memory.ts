@@ -42,3 +42,12 @@ export const entity = {
     return readMemory(client.processHandle, this.getEntityPlayer(id) + Entity.GlowIndex, 'int');
   },
 };
+
+const glowObjectManager: number = 0;
+export const getGlowObjectManager = () => {
+  if (glowObjectManager) {
+    return glowObjectManager;
+  }
+  const glowManager = readMemory(client.processHandle, client.baseClient + Entity.GlowObjectManager, 'int');
+  return glowManager;
+};

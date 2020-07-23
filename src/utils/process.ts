@@ -1,23 +1,18 @@
-import { findModule, openProcess, readMemory } from 'memoryjs';
-
-import { Entity } from '../enums/entity';
+import { findModule, openProcess } from 'memoryjs';
 
 const baseClient: number = 0;
 const processHandle: number = 0;
-const glowObjectManager: number = 0;
 
 const processName = 'csgo.exe';
 
 interface BaseClient {
   baseClient: number;
   processHandle: number;
-  glowObjectManager: number;
 }
 
 export const client: BaseClient = {
   baseClient,
   processHandle,
-  glowObjectManager,
 };
 
 export const initialise = () => {
@@ -28,7 +23,6 @@ export const initialise = () => {
       } else {
         client.baseClient = findModule('client.dll', process.th32ProcessID).modBaseAddr;
         client.processHandle = process.handle;
-        client.glowObjectManager = readMemory(process.handle, client.baseClient + Entity.GlowObjectManager, 'int');
         resolve('Successfully Loaded VL2C');
       }
     });

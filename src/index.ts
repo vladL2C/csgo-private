@@ -18,7 +18,7 @@ const runVL2C = () => {
         if (triggerbot.enabled) {
           triggerBot();
         }
-      }, 1);
+      }, 0);
 
       setInterval(() => {
         entityLoop((entity: IEntity) => {

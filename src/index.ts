@@ -12,9 +12,8 @@ const { triggerbot, radarMinimap, glowEsp, manualUpdateOffsets } = config;
 const runVL2C = () => {
   Promise.all([getOffsets(manualUpdateOffsets), initialise()])
     .then(([first, second]) => {
-      console.log(first);
-      console.log(second);
-
+      console.log('\x1b[32m', first);
+      console.log('\x1b[32m', second);
       setInterval(() => {
         if (triggerbot.enabled) {
           triggerBot();
@@ -32,8 +31,8 @@ const runVL2C = () => {
         });
       }, 25);
     })
-    .catch(e => {
-      console.log(e);
+    .catch(() => {
+      console.log('\x1b[31m', '...Game not running...');
       runVL2C();
       console.clear();
     });

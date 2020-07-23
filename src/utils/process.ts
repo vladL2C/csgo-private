@@ -2,26 +2,11 @@ import { findModule, openProcess, readMemory } from 'memoryjs';
 
 import { Entity } from '../enums/entity';
 
-let baseClient: number = 0;
-let processHandle: number = 0;
-let glowObjectManager: number = 0;
+const baseClient: number = 0;
+const processHandle: number = 0;
+const glowObjectManager: number = 0;
 
 const processName = 'csgo.exe';
-
-export const initialise = () => {
-  return new Promise((resolve, reject) => {
-    openProcess(processName, (err, process) => {
-      if (err) {
-        reject(new Error('Game not found'));
-      } else {
-        baseClient = findModule('client.dll', process.th32ProcessID).modBaseAddr;
-        processHandle = process.handle;
-        glowObjectManager = readMemory(process.handle, baseClient + Entity.GlowObjectManager, 'int');
-        resolve('Successfully Loaded VL2C');
-      }
-    });
-  });
-};
 
 interface BaseClient {
   baseClient: number;
@@ -33,4 +18,19 @@ export const client: BaseClient = {
   baseClient,
   processHandle,
   glowObjectManager,
+};
+
+export const initialise = () => {
+  return new Promise((resolve, reject) => {
+    openProcess(processName, (err, process) => {
+      if (err) {
+        reject(new Error('Game not found'));
+      } else {
+        client.baseClient = findModule('client.dll', process.th32ProcessID).modBaseAddr;
+        client.processHandle = process.handle;
+        client.glowObjectManager = readMemory(process.handle, client.baseClient + Entity.GlowObjectManager, 'int');
+        resolve('Successfully Loaded VL2C');
+      }
+    });
+  });
 };

@@ -49,10 +49,8 @@ const GlowObjectManager: any = function GlowObjectManager(this: any) {
 
 GlowObjectManager.prototype.getGlowManager = function getGlowManager() {
   if (this.glowManager) {
-    console.log('hoe haha');
     return this.glowManager;
   }
-  console.log('hoe hoe');
   this.glowManager = readMemory(client.processHandle, client.baseClient + Entity.GlowObjectManager, 'int');
   return this.glowManager;
 };

@@ -64,7 +64,7 @@
     "v8_trace_maps": 0,
     "v8_use_snapshot": "true",
     "want_separate_host_toolset": 0,
-    "nodedir": "C:\\Users\\vlad.saraev\\AppData\\Local\\node-gyp\\Cache\\8.11.3",
+    "nodedir": "C:\\Users\\vlad.saraev\\AppData\\Local\\node-gyp\\Cache\\11.15.3",
     "standalone_static_library": 1,
     "msbuild_path": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\MSBuild\\Current\\Bin\\MSBuild.exe"
   }

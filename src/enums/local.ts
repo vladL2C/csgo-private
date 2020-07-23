@@ -1,4 +1,4 @@
-import * as offsets from '../../offsets.json';
+import * as offsets from '../configs/offsets.json';
 
 const { signatures, netvars } = offsets;
 

@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "downlevelIteration": true,
-    "rootDir": ".",
+    "rootDir": "./src",
     "outDir": "build",
     "typeRoots": [
       "./customTypes",

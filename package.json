@@ -6,7 +6,7 @@
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "lint:fix": "npm run lint -- --fix",
     "start": "ts-node ./src/index.ts",
-    "build": "tsc ./src/app.ts",
+    "build": "tsc ./src/index.ts",
     "desktop": "electron ./src/app.js"
   },
   "author": "",

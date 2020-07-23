@@ -14,7 +14,7 @@ export const getOffsets = (manualUpdate: boolean) => {
       },
       (err, _res, body) => {
         if (err) return;
-        writeFile('./offsets.json', JSON.stringify(body, null, 2), error => {
+        writeFile('./src/configs/offsets.json', JSON.stringify(body, null, 2), error => {
           if (error) {
             reject(err);
           } else {

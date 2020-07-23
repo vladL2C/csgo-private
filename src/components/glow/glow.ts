@@ -1,6 +1,6 @@
 import { writeMemory } from 'memoryjs';
 
-import * as config from '../../../config.json';
+import * as config from '../../configs/config.json';
 import { IEntity } from '../../models/entity.model';
 import { localPlayer } from '../../utils/memory';
 import { client } from '../../utils/process';

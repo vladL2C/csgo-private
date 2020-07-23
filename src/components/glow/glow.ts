@@ -2,7 +2,7 @@ import { writeMemory } from 'memoryjs';
 
 import * as config from '../../configs/config.json';
 import { IEntity } from '../../models/entity.model';
-import { getGlowObjectManager, localPlayer } from '../../utils/memory';
+import { GlowManagerInstance, localPlayer } from '../../utils/memory';
 import { client } from '../../utils/process';
 
 const glowPlayer = (
@@ -12,7 +12,7 @@ const glowPlayer = (
   bRenderWhenUnoccluded: boolean,
   bFullBloom: boolean
 ) => {
-  const glowObjectManager = getGlowObjectManager();
+  const glowObjectManager = GlowManagerInstance.getGlowManager();
   writeMemory(client.processHandle, glowObjectManager + (playerIndex * 0x38 + 0x4), color.r / 255, 'float');
   writeMemory(client.processHandle, glowObjectManager + (playerIndex * 0x38 + 0x8), color.g / 255, 'float');
   writeMemory(client.processHandle, glowObjectManager + (playerIndex * 0x38 + 0xc), color.b / 255, 'float');

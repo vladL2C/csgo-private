@@ -43,11 +43,18 @@ export const entity = {
   },
 };
 
-const glowObjectManager: number = 0;
-export const getGlowObjectManager = () => {
-  if (glowObjectManager) {
-    return glowObjectManager;
-  }
-  const glowManager = readMemory(client.processHandle, client.baseClient + Entity.GlowObjectManager, 'int');
-  return glowManager;
+const GlowObjectManager: any = function GlowObjectManager(this: any) {
+  this.glowManager = 0;
 };
+
+GlowObjectManager.prototype.getGlowManager = function getGlowManager() {
+  if (this.glowManager) {
+    console.log('hoe haha');
+    return this.glowManager;
+  }
+  console.log('hoe hoe');
+  this.glowManager = readMemory(client.processHandle, client.baseClient + Entity.GlowObjectManager, 'int');
+  return this.glowManager;
+};
+
+export const GlowManagerInstance = new GlowObjectManager();

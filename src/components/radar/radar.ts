@@ -6,7 +6,8 @@ import { localPlayer } from '../../utils/memory';
 import { client } from '../../utils/process';
 
 export const radar = (entity: IEntity): void => {
-  const myCurrentTeam = localPlayer.getLocalPlayerTeam();
+  const localPlayerBase = localPlayer.getLocalPlayer();
+  const myCurrentTeam = localPlayer.getLocalPlayerTeam(localPlayerBase);
   const player = entity.entityPlayer;
   const entityTeam = entity.team;
   const { isDormant } = entity;

@@ -7,10 +7,13 @@ import { client } from '../../utils/process';
 
 export const triggerBot = (entity: IEntity): void => {
   // my current team
-  const myCurrentTeam = localPlayer.getLocalPlayerTeam();
+  const baseLocalPlayer = localPlayer.getLocalPlayer();
+  const myCurrentTeam = localPlayer.getLocalPlayerTeam(baseLocalPlayer);
 
   // get the current player in crosshair
-  // const playerInCrosshairId = localPlayer.getPlayerInCrosshair() - 1;
+  const playerInCrosshairId = localPlayer.getPlayerInCrosshair(baseLocalPlayer) - 1;
+
+  const isPlayerInCrosshair = playerInCrosshairId > 0 && playerInCrosshairId < 65;
 
   // get the other team player details
   const entityHealth = entity.health;
@@ -19,7 +22,7 @@ export const triggerBot = (entity: IEntity): void => {
   // mouse 4 on the side of mouse :)
   // entityTeam 1 = spectator // 2 = T // 3 = CT I THINK don't remember
   if (aks.getAsyncKeyState(0x05)) {
-    if (localPlayer.isPlayerInCrosshair() && myCurrentTeam !== entityTeam && entityTeam > 1 && entityHealth > 0) {
+    if (isPlayerInCrosshair && myCurrentTeam !== entityTeam && entityTeam > 1 && entityHealth > 0) {
       writeMemory(client.processHandle, localPlayer.actionAttack(), 5, 'int');
       setTimeout(() => writeMemory(client.processHandle, localPlayer.actionAttack(), 4, 'int'));
     }

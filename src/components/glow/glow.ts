@@ -23,7 +23,8 @@ const glowPlayer = (
 };
 
 export const glow = (entity: IEntity): void => {
-  const myCurrentTeam = localPlayer.getLocalPlayerTeam();
+  const localPlayerBase = localPlayer.getLocalPlayer();
+  const myCurrentTeam = localPlayer.getLocalPlayerTeam(localPlayerBase);
   const { playerGlowIndex, isDormant } = entity;
   const entityTeam = entity.team;
   const entityHealth = entity.health;

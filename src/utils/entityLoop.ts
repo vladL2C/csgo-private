@@ -22,7 +22,7 @@ export const EntityUpdater = () =>
         };
       }
     }
-  }, 0);
+  }, 250);
 
 export const entityLoop = (callbackFn: (entity: IEntity) => void) => {
   EntityState.forEach(callbackFn);

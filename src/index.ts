@@ -33,7 +33,7 @@ const runVL2C = () => {
             glow(entity);
           }
         });
-      }, 0);
+      }, 25);
     })
     .catch(() => {
       console.log('\x1b[31m', '...Game not running...');

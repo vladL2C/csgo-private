@@ -1,11 +1,11 @@
 import * as aks from 'asynckeystate';
 import { writeMemory } from 'memoryjs';
 
-import { IEntity } from '../../models/entity.model';
+import { EntityState } from '../../utils/entityLoop';
 import { localPlayer } from '../../utils/memory';
 import { client } from '../../utils/process';
 
-export const triggerBot = (entity: IEntity): void => {
+export const triggerBot = (): void => {
   // my current team
   const baseLocalPlayer = localPlayer.getLocalPlayer();
   const myCurrentTeam = localPlayer.getLocalPlayerTeam(baseLocalPlayer);
@@ -16,8 +16,8 @@ export const triggerBot = (entity: IEntity): void => {
   const isPlayerInCrosshair = playerInCrosshairId > 0 && playerInCrosshairId < 65;
 
   // get the other team player details
-  const entityHealth = entity.health;
-  const entityTeam = entity.team;
+  const entityHealth = EntityState[playerInCrosshairId] ? EntityState[playerInCrosshairId].health : 0;
+  const entityTeam = EntityState[playerInCrosshairId] ? EntityState[playerInCrosshairId].team : 0;
 
   // mouse 4 on the side of mouse :)
   // entityTeam 1 = spectator // 2 = T // 3 = CT I THINK don't remember

@@ -18,11 +18,13 @@ const runVL2C = () => {
       EntityUpdater();
 
       setInterval(() => {
-        entityLoop((entity: IEntity) => {
-          if (triggerbot.enabled) {
-            triggerBot(entity);
-          }
+        if (triggerbot.enabled) {
+          triggerBot();
+        }
+      }, 0);
 
+      setInterval(() => {
+        entityLoop((entity: IEntity) => {
           if (radarMinimap.enabled) {
             radar(entity);
           }

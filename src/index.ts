@@ -26,11 +26,12 @@ const runVL2C = () => {
           if (radarMinimap.enabled) {
             radar(entity);
           }
+
           if (glowEsp.enemyEnabled || glowEsp.teamEnabled) {
             glow(entity);
           }
         });
-      }, 1);
+      }, 0);
     })
     .catch(() => {
       console.log('\x1b[31m', '...Game not running...');

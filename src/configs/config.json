@@ -6,7 +6,7 @@
     "enabled": true
   },
   "glowEsp": {
-    "teamEnabled": true,
+    "teamEnabled": false,
     "enemyEnabled": true,
     "team": {
       "r": 0,

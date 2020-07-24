@@ -29,30 +29,19 @@ export const localPlayer = {
 export const entity = {
   getEntityPlayer: (id: number) =>
     readMemory(client.processHandle, client.baseClient + Entity.PlayerList + id * Entity.LoopDistance, 'int'),
-  getEntityPlayerHealth(id: number) {
-    return readMemory(client.processHandle, this.getEntityPlayer(id) + Player.Health, 'int');
+  getEntityPlayerHealth(basePlayerAddress: number) {
+    return readMemory(client.processHandle, basePlayerAddress + Player.Health, 'int');
   },
-  getEntityPlayerTeam(id: number) {
-    return readMemory(client.processHandle, this.getEntityPlayer(id) + Entity.Team, 'int');
+  getEntityPlayerTeam(basePlayerAddress: number) {
+    return readMemory(client.processHandle, basePlayerAddress + Entity.Team, 'int');
   },
-  getEntityIsDormant(id: number) {
-    return readMemory(client.processHandle, this.getEntityPlayer(id) + Entity.Dormant, 'int');
+  getEntityIsDormant(basePlayerAddress: number) {
+    return readMemory(client.processHandle, basePlayerAddress + Entity.Dormant, 'int');
   },
-  getEntityGlowIndex(id: number) {
-    return readMemory(client.processHandle, this.getEntityPlayer(id) + Entity.GlowIndex, 'int');
+  getEntityGlowIndex(basePlayerAddress: number) {
+    return readMemory(client.processHandle, basePlayerAddress + Entity.GlowIndex, 'int');
   },
 };
 
-const GlowObjectManager: any = function GlowObjectManager(this: any) {
-  this.glowManager = 0;
-};
-
-GlowObjectManager.prototype.getGlowManager = function getGlowManager() {
-  if (this.glowManager) {
-    return this.glowManager;
-  }
-  this.glowManager = readMemory(client.processHandle, client.baseClient + Entity.GlowObjectManager, 'int');
-  return this.glowManager;
-};
-
-export const GlowManagerInstance = new GlowObjectManager();
+export const GlowObjectManager = () =>
+  readMemory(client.processHandle, client.baseClient + Entity.GlowObjectManager, 'int');

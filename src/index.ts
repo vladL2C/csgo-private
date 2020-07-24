@@ -3,7 +3,7 @@ import { radar } from './components/radar/radar';
 import { triggerBot } from './components/trigger/trigger';
 import * as config from './configs/config.json';
 import { IEntity } from './models/entity.model';
-import { entityLoop } from './utils/entityLoop';
+import { entityLoop, EntityUpdater } from './utils/entityLoop';
 import { getOffsets } from './utils/getoffSets';
 import { initialise } from './utils/process';
 
@@ -14,14 +14,15 @@ const runVL2C = () => {
     .then(([first, second]) => {
       console.log('\x1b[32m', first);
       console.log('\x1b[32m', second);
-      setInterval(() => {
-        if (triggerbot.enabled) {
-          triggerBot();
-        }
-      }, 0);
+
+      EntityUpdater();
 
       setInterval(() => {
         entityLoop((entity: IEntity) => {
+          if (triggerbot.enabled) {
+            triggerBot(entity);
+          }
+
           if (radarMinimap.enabled) {
             radar(entity);
           }
@@ -29,7 +30,7 @@ const runVL2C = () => {
             glow(entity);
           }
         });
-      }, 25);
+      }, 1);
     })
     .catch(() => {
       console.log('\x1b[31m', '...Game not running...');

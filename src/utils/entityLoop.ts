@@ -1,22 +1,29 @@
 import { IEntity } from '../models/entity.model';
 import { entity } from './memory';
 
-export const entityLoop = (callbackFn: (entity: IEntity) => void) => {
-  for (let i = 0; i < 64; i += 1) {
-    const player = entity.getEntityPlayer(i);
-    const entityTeam = entity.getEntityPlayerTeam(i);
-    const isDormant = entity.getEntityIsDormant(i);
-    const playerGlowIndex = entity.getEntityGlowIndex(i);
-    const entityHealth = entity.getEntityPlayerHealth(i);
+export const EntityState: IEntity[] = [];
 
-    if (player) {
-      callbackFn({
-        entityPlayer: player,
-        team: entityTeam,
-        isDormant,
-        playerGlowIndex,
-        health: entityHealth,
-      });
+export const EntityUpdater = () =>
+  setInterval(() => {
+    for (let i = 0; i < 64; i += 1) {
+      const playerBase = entity.getEntityPlayer(i);
+      const entityTeam = entity.getEntityPlayerTeam(playerBase);
+      const isDormant = entity.getEntityIsDormant(playerBase);
+      const playerGlowIndex = entity.getEntityGlowIndex(playerBase);
+      const entityHealth = entity.getEntityPlayerHealth(playerBase);
+
+      if (playerBase) {
+        EntityState[i] = {
+          entityPlayer: playerBase,
+          team: entityTeam,
+          isDormant,
+          playerGlowIndex,
+          health: entityHealth,
+        };
+      }
     }
-  }
+  }, 0);
+
+export const entityLoop = (callbackFn: (entity: IEntity) => void) => {
+  EntityState.forEach(callbackFn);
 };

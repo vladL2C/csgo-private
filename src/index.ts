@@ -3,7 +3,7 @@ import { radar } from './components/radar/radar';
 import { triggerBot } from './components/trigger/trigger';
 import * as config from './configs/config.json';
 import { IEntity } from './models/entity.model';
-import { entityLoop, EntityUpdater } from './utils/entityLoop';
+import { entityLoop, EntityUpdater, LocalPlayerUpdater } from './utils/entityLoop';
 import { getOffsets } from './utils/getoffSets';
 import { initialise } from './utils/process';
 
@@ -15,6 +15,7 @@ const runVL2C = () => {
       console.log('\x1b[32m', first);
       console.log('\x1b[32m', second);
 
+      LocalPlayerUpdater();
       EntityUpdater();
 
       setInterval(() => {

@@ -1,17 +1,16 @@
 import * as aks from 'asynckeystate';
 import { writeMemory } from 'memoryjs';
 
-import { EntityState } from '../../utils/entityLoop';
+import { EntityState, LocalPlayerState } from '../../utils/entityLoop';
 import { localPlayer } from '../../utils/memory';
 import { client } from '../../utils/process';
 
 export const triggerBot = (): void => {
   // my current team
-  const baseLocalPlayer = localPlayer.getLocalPlayer();
-  const myCurrentTeam = localPlayer.getLocalPlayerTeam(baseLocalPlayer);
+  const myCurrentTeam = LocalPlayerState.team;
 
   // get the current player in crosshair
-  const playerInCrosshairId = localPlayer.getPlayerInCrosshair(baseLocalPlayer) - 1;
+  const playerInCrosshairId = LocalPlayerState.crosshairId;
 
   const isPlayerInCrosshair = playerInCrosshairId > 0 && playerInCrosshairId < 65;
 

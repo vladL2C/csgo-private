@@ -22,5 +22,5 @@
     },
     "bloom": false
   },
-  "manualUpdateOffsets": true
+  "manualUpdateOffsets": false
 }

@@ -31,11 +31,11 @@ export const glow = (entity: IEntity): void => {
 
   if (!isDormant && entityHealth > 0) {
     if (myCurrentTeam === entityTeam && config.glowEsp.teamEnabled) {
-      glowPlayer(playerGlowIndex, config.glowEsp.team, true, false, config.glowEsp.bloom);
+      setTimeout(() => glowPlayer(playerGlowIndex, config.glowEsp.team, true, false, config.glowEsp.bloom));
     }
 
     if (myCurrentTeam !== entityTeam && config.glowEsp.enemyEnabled) {
-      glowPlayer(playerGlowIndex, config.glowEsp.enemy, true, false, config.glowEsp.bloom);
+      setTimeout(() => glowPlayer(playerGlowIndex, config.glowEsp.enemy, true, false, config.glowEsp.bloom));
     }
   }
 };

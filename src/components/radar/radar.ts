@@ -2,12 +2,11 @@ import { writeMemory } from 'memoryjs';
 
 import { Entity } from '../../enums/entity';
 import { IEntity } from '../../models/entity.model';
-import { localPlayer } from '../../utils/memory';
+import { LocalPlayerState } from '../../utils/entityLoop';
 import { client } from '../../utils/process';
 
 export const radar = (entity: IEntity): void => {
-  const localPlayerBase = localPlayer.getLocalPlayer();
-  const myCurrentTeam = localPlayer.getLocalPlayerTeam(localPlayerBase);
+  const myCurrentTeam = LocalPlayerState.team;
   const player = entity.entityPlayer;
   const entityTeam = entity.team;
   const { isDormant } = entity;

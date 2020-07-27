@@ -2,7 +2,8 @@ import { writeMemory } from 'memoryjs';
 
 import * as config from '../../configs/config.json';
 import { IEntity } from '../../models/entity.model';
-import { GlowObjectManager, localPlayer } from '../../utils/memory';
+import { LocalPlayerState } from '../../utils/entityLoop';
+import { GlowObjectManager } from '../../utils/memory';
 import { client } from '../../utils/process';
 
 const glowPlayer = (
@@ -23,8 +24,7 @@ const glowPlayer = (
 };
 
 export const glow = (entity: IEntity): void => {
-  const localPlayerBase = localPlayer.getLocalPlayer();
-  const myCurrentTeam = localPlayer.getLocalPlayerTeam(localPlayerBase);
+  const myCurrentTeam = LocalPlayerState.team;
   const { playerGlowIndex, isDormant } = entity;
   const entityTeam = entity.team;
   const entityHealth = entity.health;

@@ -1,6 +1,6 @@
 {
   "triggerbot": {
-    "enabled": true
+    "enabled": true 
   },
   "radarMinimap": {
     "enabled": true
@@ -22,5 +22,8 @@
     },
     "bloom": false
   },
-  "manualUpdateOffsets": true
+  "manualUpdateOffsets": true,
+  "bhop" : {
+    "enabled" : true
+  }
 }

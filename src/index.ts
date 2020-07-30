@@ -7,7 +7,7 @@ import { entityLoop, EntityUpdater, LocalPlayerUpdater } from './utils/entityLoo
 import { getOffsets } from './utils/getoffSets';
 import { initialise } from './utils/process';
 import { jumpBot} from './components/jump/jump';
-const { triggerbot, radarMinimap, glowEsp, manualUpdateOffsets } = config;
+const { triggerbot, radarMinimap, glowEsp, manualUpdateOffsets,bhop } = config;
 
 const runVL2C = () => {
   Promise.all([getOffsets(manualUpdateOffsets), initialise()])
@@ -26,7 +26,10 @@ const runVL2C = () => {
       }, 0);
       // its ready see if it runs
       setInterval(() => {
-        jumpBot();
+        if(bhop.enabled) {
+          jumpBot();
+        }
+        
       },0)
 
       setInterval(() => {

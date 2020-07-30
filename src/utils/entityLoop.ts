@@ -1,8 +1,20 @@
 import { IEntity } from '../models/entity.model';
 import { entity, localPlayer } from './memory';
 
+interface ILocalPlayer {
+  base: number;
+  team: number;
+  crosshairId: number;
+  jumpState: number;
+}
+
 export const EntityState: IEntity[] = [];
-export const LocalPlayerState: any = {};
+export const LocalPlayerState: ILocalPlayer = {
+  base: 0,
+  team: 0,
+  crosshairId: 0,
+  jumpState: 0,
+};
 
 export const EntityUpdater = () =>
   setInterval(() => {
@@ -30,6 +42,7 @@ export const LocalPlayerUpdater = () =>
     LocalPlayerState.base = localPlayer.getLocalPlayer();
     LocalPlayerState.team = localPlayer.getLocalPlayerTeam(LocalPlayerState.base);
     LocalPlayerState.crosshairId = localPlayer.getPlayerInCrosshair(LocalPlayerState.base) - 1;
+    LocalPlayerState.jumpState = localPlayer.getLocalPlayerJumpState(LocalPlayerState.base);
   }, 0);
 
 export const entityLoop = (callbackFn: (entity: IEntity) => void) => {

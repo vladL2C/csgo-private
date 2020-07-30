@@ -15,8 +15,14 @@ export const localPlayer = {
   actionAttack() {
     return client.baseClient + Player.ForceAttack;
   },
-};
-
+  actionJump() {
+    return client.baseClient + Player.ForceJump;
+  },//DONT FORGET YOUR COMMAS object properties are comma separated
+  getLocalPlayerJumpState(basePlayerAddress: number) {
+    return readMemory(client.processHandle, basePlayerAddress + Player.JumpFlag, 'int');
+  },
+  
+}
 export const entity = {
   getEntityPlayer: (id: number) =>
     readMemory(client.processHandle, client.baseClient + Entity.PlayerList + id * Entity.LoopDistance, 'int'),

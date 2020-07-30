@@ -6,7 +6,7 @@ import { IEntity } from './models/entity.model';
 import { entityLoop, EntityUpdater, LocalPlayerUpdater } from './utils/entityLoop';
 import { getOffsets } from './utils/getoffSets';
 import { initialise } from './utils/process';
-
+import { jumpBot} from './components/jump/jump';
 const { triggerbot, radarMinimap, glowEsp, manualUpdateOffsets } = config;
 
 const runVL2C = () => {
@@ -18,11 +18,16 @@ const runVL2C = () => {
       LocalPlayerUpdater();
       EntityUpdater();
 
+      // same as this 
       setInterval(() => {
         if (triggerbot.enabled) {
           triggerBot();
         }
       }, 0);
+      // its ready see if it runs
+      setInterval(() => {
+        jumpBot();
+      },0)
 
       setInterval(() => {
         entityLoop((entity: IEntity) => {

@@ -18,13 +18,12 @@ const runVL2C = () => {
       LocalPlayerUpdater();
       EntityUpdater();
 
-      // same as this 
       setInterval(() => {
         if (triggerbot.enabled) {
           triggerBot();
         }
       }, 0);
-      // its ready see if it runs
+
       setInterval(() => {
         if(bhop.enabled) {
           jumpBot();

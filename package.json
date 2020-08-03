@@ -6,15 +6,21 @@
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "lint:fix": "npm run lint -- --fix",
     "start": "ts-node ./src/index.ts",
-    "build": "tsc ./src/index.ts",
+    "build": "webpack",
     "desktop": "electron ./src/app.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
     "@types/node": "^10.0.3",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "@typescript-eslint/parser": "^2.30.0",
+    "babel-loader": "^8.1.0",
     "electron": "^9.1.1",
     "electron-rebuild": "^1.11.0",
     "eslint": "^6.8.0",
@@ -27,7 +33,10 @@
     "eslint-plugin-react-hooks": "^2.5.1",
     "prettier": "^2.0.5",
     "ts-node": "^8.9.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.0"
   },
   "dependencies": {
     "@types/request": "^2.48.4",

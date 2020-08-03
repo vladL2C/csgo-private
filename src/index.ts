@@ -1,4 +1,5 @@
 import { glow } from './components/glow/glow';
+import { jumpBot } from './components/jump/jump';
 import { radar } from './components/radar/radar';
 import { triggerBot } from './components/trigger/trigger';
 import * as config from './configs/config.json';
@@ -6,8 +7,8 @@ import { IEntity } from './models/entity.model';
 import { entityLoop, EntityUpdater, LocalPlayerUpdater } from './utils/entityLoop';
 import { getOffsets } from './utils/getoffSets';
 import { initialise } from './utils/process';
-import { jumpBot} from './components/jump/jump';
-const { triggerbot, radarMinimap, glowEsp, manualUpdateOffsets,bhop } = config;
+
+const { triggerbot, radarMinimap, glowEsp, manualUpdateOffsets, bhop } = config;
 
 const runVL2C = () => {
   Promise.all([getOffsets(manualUpdateOffsets), initialise()])
@@ -25,11 +26,10 @@ const runVL2C = () => {
       }, 0);
 
       setInterval(() => {
-        if(bhop.enabled) {
+        if (bhop.enabled) {
           jumpBot();
         }
-        
-      },0)
+      }, 0);
 
       setInterval(() => {
         entityLoop((entity: IEntity) => {

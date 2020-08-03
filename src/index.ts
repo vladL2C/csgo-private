@@ -10,7 +10,7 @@ import { initialise } from './utils/process';
 
 const { triggerbot, radarMinimap, glowEsp, manualUpdateOffsets, bhop } = config;
 
-const runVL2C = () => {
+export const runVL2C = () => {
   Promise.all([getOffsets(manualUpdateOffsets), initialise()])
     .then(([first, second]) => {
       console.log('\x1b[32m', first);

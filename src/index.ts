@@ -49,5 +49,3 @@ export const runVL2C = () => {
       console.clear();
     });
 };
-
-runVL2C();

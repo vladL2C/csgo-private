@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     test: path.resolve(__dirname, './desktopApp/test.ts'),
     desktop: path.resolve(__dirname, './desktopApp/app.ts'),
+    vl2c: path.resolve(__dirname, './src/index.ts'),
   },
 
   output: {

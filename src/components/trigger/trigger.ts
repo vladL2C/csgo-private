@@ -1,5 +1,6 @@
 import * as aks from 'asynckeystate';
 import { writeMemory } from 'memoryjs';
+import * as robot from 'robotjs';
 
 import { EntityState, LocalPlayerState } from '../../utils/entityLoop';
 import { localPlayer } from '../../utils/memory';
@@ -22,8 +23,7 @@ export const triggerBot = (): void => {
   // entityTeam 1 = spectator // 2 = T // 3 = CT I THINK don't remember
   if (aks.getAsyncKeyState(0x05)) {
     if (isPlayerInCrosshair && myCurrentTeam !== entityTeam && entityTeam > 1 && entityHealth > 0) {
-      writeMemory(client.processHandle, localPlayer.actionAttack(), 5, 'int');
-      setTimeout(() => writeMemory(client.processHandle, localPlayer.actionAttack(), 4, 'int'));
+      robot.mouseClick();
     }
   }
 };

@@ -36,6 +36,7 @@
     "eslint-plugin-simple-import-sort": "^5.0.3",
     "fs": "0.0.1-security",
     "memoryjs": "^3.4.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "robotjs": "^0.6.0"
   }
 }

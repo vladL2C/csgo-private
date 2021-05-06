@@ -1,10 +1,7 @@
 import * as aks from 'asynckeystate';
-import { writeMemory } from 'memoryjs';
 import * as robot from 'robotjs';
 
 import { EntityState, LocalPlayerState } from '../../utils/entityLoop';
-import { localPlayer } from '../../utils/memory';
-import { client } from '../../utils/process';
 
 export const triggerBot = (): void => {
   // my current team

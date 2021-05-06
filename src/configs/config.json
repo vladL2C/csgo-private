@@ -22,7 +22,7 @@
     },
     "bloom": false
   },
-  "manualUpdateOffsets": true,
+  "manualUpdateOffsets": false,
   "bhop" : {
     "enabled" : true
   }

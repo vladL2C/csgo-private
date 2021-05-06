@@ -1,6 +1,6 @@
 # Prerequisite
 ##### Requires Windows
-##### Node version `v8.11.3` or `11.15.0` you can install it via nvm [nvm-windows](https://github.com/coreybutler/nvm-windows)
+##### [Node download LTS Version follow installer](https://nodejs.org/en/)
 ##### requires node-gyp to use [node-gyp](https://github.com/nodejs/node-gyp). 
 [You may also need to follow these steps](https://github.com/nodejs/node-gyp#user-content-installation)
 

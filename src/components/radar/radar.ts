@@ -2,8 +2,8 @@ import { writeMemory } from 'memoryjs';
 
 import { Entity } from '../../enums/entity';
 import { IEntity } from '../../models/entity.model';
-import { LocalPlayerState } from '../../utils/entityLoop';
 import { client } from '../../utils/process';
+import { LocalPlayerState } from '../../workers/localPlayerUpdater.worker';
 
 export const radar = (entity: IEntity): void => {
   const myCurrentTeam = LocalPlayerState.team;

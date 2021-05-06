@@ -2,9 +2,9 @@ import { writeMemory } from 'memoryjs';
 
 import * as config from '../../configs/config.json';
 import { IEntity } from '../../models/entity.model';
-import { LocalPlayerState } from '../../utils/entityLoop';
 import { GlowObjectManager } from '../../utils/memory';
 import { client } from '../../utils/process';
+import { LocalPlayerState } from '../../workers/localPlayerUpdater.worker';
 
 const glowPlayer = (
   playerIndex: number,

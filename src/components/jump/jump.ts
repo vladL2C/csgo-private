@@ -1,9 +1,9 @@
 import * as aks from 'asynckeystate';
 import { writeMemory } from 'memoryjs';
 
-import { LocalPlayerState } from '../../utils/entityLoop';
 import { localPlayer } from '../../utils/memory';
 import { client } from '../../utils/process';
+import { LocalPlayerState } from '../../workers/localPlayerUpdater.worker';
 
 export const jumpBot = (): void => {
   if (aks.getAsyncKeyState(0x20) && LocalPlayerState.jumpState === 257) {

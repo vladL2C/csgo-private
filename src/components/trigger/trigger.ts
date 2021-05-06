@@ -1,7 +1,8 @@
 import * as aks from 'asynckeystate';
 import * as robot from 'robotjs';
 
-import { EntityState, LocalPlayerState } from '../../utils/entityLoop';
+import { EntityState } from '../../workers/entityUpdater.worker';
+import { LocalPlayerState } from '../../workers/localPlayerUpdater.worker';
 
 export const triggerBot = (): void => {
   // my current team
